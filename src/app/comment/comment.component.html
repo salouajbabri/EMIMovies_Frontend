@@ -1,0 +1,17 @@
+<div class="comment mt-4">
+  <form id="commentForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="Name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter your name" [(ngModel)]="formData.Name" >
+    </div>
+    <div class="mb-3">
+      <label for="mail" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="mail" name="mail" placeholder="Enter your email" [(ngModel)]="formData.mail">
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Add Comment:</label>
+      <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Enter your comment here..." [(ngModel)]="formData.comment"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Add Comment</button>
+  </form>
+</div>

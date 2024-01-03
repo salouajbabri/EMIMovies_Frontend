@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+  }
+  
+  /* Typography */
+  h1, h2 {
+    font-weight: bold;
+  }
+  
+  .text {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .text-black {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8em;
+    margin-left: 40px;
+    color: #333;
+  }
+  
+  /* Links */
+  a {
+    background-color: #ffcc00;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  }
+  
+  a:hover {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #ffcc00;
+  }
+  
+  /* Buttons */
+  input[type="submit"],
+  .button {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover,
+  .button:hover {
+    background-color: #333;
+    color: #fff;
+    
+  }
+  
+  /* Form Styles */
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color: gray;
+  }
+  
+  textarea {
+    width: 100%;
+    margin-right: 0%;
+    margin-bottom: 16px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding and border in the total width */
+  }
+  
+  /* Custom Styles */
+  .cast {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    margin-left: 0;
+  }
+  
+  /* Futuristic Styling */
+  body {
+    background-image: linear-gradient(to right top, #1a1a1a, #333, #555, #777, #999);
+  }
+
+  .btn btn-success{
+
+   background-color:  #ffcc00
+  }
+  
+  /* ... Add more futuristic styles as needed ... */
+  

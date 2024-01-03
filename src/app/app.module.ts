@@ -3,16 +3,35 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SearchComponent } from './pages/search/search.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import {HttpClientModule} from '@angular/common/http';
+import { MovieApiServiceService } from './service/movie-api-service.service';
+
+
+import { FormsModule } from '@angular/forms'; // <-- import FormsModule here
+
+import { CommentComponent } from './comment/comment.component'; 
+
+import{ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    SearchComponent,
+    MovieDetailsComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MovieApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

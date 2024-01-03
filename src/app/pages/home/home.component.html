@@ -1,0 +1,75 @@
+<div class="bodyfilm">
+          
+          <div class="carousel-caption ">
+          
+            <div class="list-container">
+              <div class="film-card" *ngFor="let b of bannerResult;let i=index"
+              [ngClass]="{active:i===1}"
+              [routerLink]="['/movie',b.id]">
+                <img class="film-image" src="https://image.tmdb.org/t/p/original/{{ b.backdrop_path }}"  alt="...">
+                <div class="film-title">{{ b.original_title }}</div>
+                <div class="film-details">{{ b.release_date }}</div>
+                <div class="film-description">rating : {{ b.vote_average }}</div>
+              </div>
+            </div>
+       
+     
+      
+    </div>
+  </div>
+  
+
+<!--
+<div>
+    <h5 class = "text"> Trending Movies</h5>
+    <div class = "list-container" >
+        <ng-container *ngFor="let t of trendingMovieResult">
+        <img class="film-image"src = "https://image.tmdb.org/t/p/original/{{ t.poster_path }}" 
+        
+        alt="..."
+        [routerLink]="['/movie',t.id]"  >
+
+        <div class="film-title">{{ t.original_title }}</div>
+        <div class="film-details">{{ t.release_date }}</div>
+        <div class="film-description">{{ t.vote_average }}</div>
+    </ng-container>
+    
+    
+</div>
+
+<div >
+  <h5 class = "text"> Action Movies</h5>
+  <div class = "list-container" >
+      <ng-container *ngFor="let a of actionMovieResult">
+      <img class="film-image" src = "https://image.tmdb.org/t/p/original/{{ a.poster_path }}" 
+      
+      alt="..."
+      [routerLink]="['/movie',a.id]"  >
+
+      <div class="film-title">{{ a.original_title }}</div>
+      <div class="film-details">{{ a.release_date }}</div>
+      <div class="film-description">{{ a.vote_average }}</div>
+  </ng-container>
+  </div>
+</div>
+
+<div >
+  <h5 class = "text"> Adventure Movies</h5>
+  <div class = "list-container" >
+      <ng-container *ngFor="let ad of adventureMovieResult">
+      <img  class="film-image" src = "https://image.tmdb.org/t/p/original/{{ ad.poster_path }}" 
+      
+      alt="..."
+      [routerLink]="['/movie',ad.id]"  >
+      <div class="film-title">{{ ad.original_title }}</div>
+      <div class="film-details">{{ ad.release_date }}</div>
+      <div class="film-description">{{ ad.vote_average }}</div>
+  </ng-container>
+  </div>
+</div>
+
+
+-->
+
+
+
