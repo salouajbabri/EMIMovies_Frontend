@@ -8,13 +8,19 @@ import { SearchComponent } from './pages/search/search.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import {HttpClientModule} from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
+import { SharedserviceService } from './sharedservice.service';
 
+import { RouterModule } from '@angular/router';
 
-import { FormsModule } from '@angular/forms'; // <-- import FormsModule here
+import { FormsModule } from '@angular/forms'; 
 
 import { CommentComponent } from './comment/comment.component'; 
 
 import{ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,16 +28,21 @@ import{ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     SearchComponent,
     MovieDetailsComponent,
-    CommentComponent
+    CommentComponent,
+    LoginComponent,
+    SignupComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    RouterModule
   ],
-  providers: [MovieApiServiceService],
+  providers: [MovieApiServiceService, SharedserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

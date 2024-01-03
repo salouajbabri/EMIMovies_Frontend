@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,7 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private authService: AuthService) {}
   title = 'movies_app';
   navbg:any;
   @HostListener('document:scroll') scrollover(){
@@ -19,4 +22,14 @@ export class AppComponent {
       this.navbg = {}
     }
   }
+
+  isLoggedIn(): boolean {
+    
+    return this.authService.isUserLoggedIn();
+  }
+
+  logout(): void{
+    this.authService.logout();
+  }
+ 
 }

@@ -18,6 +18,10 @@ export class MovieApiServiceService {
 
   
  
+
+  getFavoriteMovies(movieId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/favorites/get`);
+  }
   
   
 
@@ -32,6 +36,27 @@ export class MovieApiServiceService {
   bannerApiData(): Observable<any> {
     return this.http.get(`${this.baseurl}/movie/popular?api_key=${this.apikey}`);
   }
+
+
+  getMovieDetailsF(movieId: number): Observable<any> {
+    const url = `${this.baseUrl}/favorites/${movieId}`;
+    return this.http.get(url);
+  }
+  
+
+  getimagefromapi( poster_path: string){
+    return 'https://image.tmdb.org/t/p/w1280' + poster_path
+  }
+  getAllFavorites(): Observable<any[]> {
+    const url = `${this.baseUrl}/favorites/get`;
+    return this.http.get<any[]>(url);
+  }
+
+  deleteFavorite(movie_id: number): Observable<any> {
+    const url = `${this.baseUrl}/favorites/delete/${movie_id}`;
+    return this.http.delete(url);
+  }
+ 
 
   trendingMovieApiData():Observable<any>{
     return this.http.get(`${this.baseurl}/trending/movie/day?api_key=${this.apikey}`);

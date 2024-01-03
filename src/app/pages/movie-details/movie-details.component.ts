@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 import { CommentComponent } from 'src/app/comment/comment.component';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth.service';
+import { SharedserviceService } from 'src/app/sharedservice.service';
 
 @Component({
   selector: 'app-movie-details', 
@@ -19,13 +21,16 @@ export class MovieDetailsComponent implements OnInit {
   getMovieVideoResult: any;
   getMovieCastResult: any;
   
+  
 
 
   constructor(
     
     private service: MovieApiServiceService,
     private router: ActivatedRoute,
-    private http : HttpClient
+    private http : HttpClient,
+    private authService : AuthService,
+    private sharedService: SharedserviceService
     
   ) {}
 
@@ -38,10 +43,14 @@ export class MovieDetailsComponent implements OnInit {
     this.getMovieCast(getParamId);
    
     this.loadComments();
+    this.getMovieId(getParamId);
   }
  
 
- 
+  isUserLoggedIn(): boolean {
+    return this.authService.isUserLoggedIn();
+  }
+
 
   addToFavorites() {
     if (this.getMovieDetailResult && this.getMovieDetailResult.id) {
@@ -69,14 +78,13 @@ export class MovieDetailsComponent implements OnInit {
   };
 
  
-
   loadComments() {
-    const apiUrl = `http://localhost:8080/comments/get?movieId=${this.getMovieDetailResult.id}`;
+    const apiUrl = `http://localhost:8080/comments/get?idmovie=${this.getMovieDetailResult.id}`;
 
     this.http.get<any[]>(apiUrl)
       .subscribe(
-        (comments) => {
-          this.comments = comments;
+        (comment) => {
+          this.comments= comment;
         },
         (error) => {
           console.error('Error fetching comments:', error);
@@ -84,10 +92,15 @@ export class MovieDetailsComponent implements OnInit {
       );
   }
   
-
+  getMovieId(movieId: any) {
+    this.service.getMovieDetails(movieId).subscribe((result) => {
+      console.log(result, 'getmoviedetails#');
+      this.getMovieDetailResult = result;
+      this.sharedService.changeMovieDetailResult(result); 
+    });
+  }
   
 
-  // Function to handle form submission
   onSubmit() {
     
 
@@ -105,7 +118,7 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log('Comment added successfully:', response);
-          //this.resetForm();
+          
         },
         (error) => {
           console.error('Error adding comment:', error);
